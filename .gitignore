@@ -37,5 +37,19 @@
 *.out
 *.app
 
+# Build artifacts
+build/
+bin/
+
+# Local Python environments (do not create inside repo)
+.venv/
+venv/
+env/
+acm/
+
+# CP Helper / local temp artifacts
+**/.cph/
+**/*.prob
+
 # debug information files
 *.dwo

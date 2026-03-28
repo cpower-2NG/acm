@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "tags": [
+    {
+      "id": "图论",
+      "zh": "图论",
+      "en": "graph",
+      "aliases": [
+        "graphs"
+      ]
+    },
+    {
+      "id": "最短路",
+      "zh": "最短路",
+      "en": "shortest-path",
+      "aliases": [
+        "shortest path",
+        "dijkstra",
+        "floyd"
+      ]
+    },
+    {
+      "id": "数据结构",
+      "zh": "数据结构",
+      "en": "data-structure",
+      "aliases": [
+        "data structure",
+        "ds"
+      ]
+    },
+    {
+      "id": "动态规划",
+      "zh": "动态规划",
+      "en": "dp",
+      "aliases": [
+        "dynamic programming"
+      ]
+    },
+    {
+      "id": "深度优先搜索",
+      "zh": "深度优先搜索",
+      "en": "dfs",
+      "aliases": [
+        "depth-first search"
+      ]
+    },
+    {
+      "id": "广度优先搜索",
+      "zh": "广度优先搜索",
+      "en": "bfs",
+      "aliases": [
+        "breadth-first search"
+      ]
+    },
+    {
+      "id": "贪心",
+      "zh": "贪心",
+      "en": "greedy",
+      "aliases": []
+    },
+    {
+      "id": "实现",
+      "zh": "实现",
+      "en": "implementation",
+      "aliases": []
+    },
+    {
+      "id": "数学",
+      "zh": "数学",
+      "en": "math",
+      "aliases": []
+    },
+    {
+      "id": "字符串",
+      "zh": "字符串",
+      "en": "string",
+      "aliases": []
+    },
+    {
+      "id": "二分",
+      "zh": "二分",
+      "en": "binary-search",
+      "aliases": [
+        "binary search"
+      ]
+    }
+  ]
+}

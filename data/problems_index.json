@@ -1,0 +1,132 @@
+{
+  "generated_at": "2026-03-27T03:36:04Z",
+  "count": 6,
+  "warnings": [
+    "codeforces metadata unavailable: name 'normalize_tags' is not defined",
+    "atcoder metadata unavailable: HTTP Error 404: Not Found"
+  ],
+  "tag_meta": {
+    "图论": {
+      "zh": "图论",
+      "en": "graph"
+    },
+    "最短路": {
+      "zh": "最短路",
+      "en": "shortest-path"
+    },
+    "数据结构": {
+      "zh": "数据结构",
+      "en": "data-structure"
+    },
+    "动态规划": {
+      "zh": "动态规划",
+      "en": "dp"
+    },
+    "深度优先搜索": {
+      "zh": "深度优先搜索",
+      "en": "dfs"
+    },
+    "广度优先搜索": {
+      "zh": "广度优先搜索",
+      "en": "bfs"
+    },
+    "贪心": {
+      "zh": "贪心",
+      "en": "greedy"
+    },
+    "实现": {
+      "zh": "实现",
+      "en": "implementation"
+    },
+    "数学": {
+      "zh": "数学",
+      "en": "math"
+    },
+    "字符串": {
+      "zh": "字符串",
+      "en": "string"
+    },
+    "二分": {
+      "zh": "二分",
+      "en": "binary-search"
+    }
+  },
+  "records": [
+    {
+      "path": "problems/atcoder/abc449/A.cpp",
+      "platform": "atcoder",
+      "contest": "abc449",
+      "problem": "A",
+      "task_id": "abc449_a",
+      "source_url": "https://atcoder.jp/contests/abc449/tasks/abc449_a",
+      "title": "A - π",
+      "tags": [
+        "图论",
+        "动态规划",
+        "贪心"
+      ],
+      "difficulty": null,
+      "status": "ac"
+    },
+    {
+      "path": "problems/atcoder/abc449/B.cpp",
+      "platform": "atcoder",
+      "contest": "abc449",
+      "problem": "B",
+      "task_id": "abc449_b",
+      "source_url": "https://atcoder.jp/contests/abc449/tasks/abc449_b",
+      "title": "B - Deconstruct Chocolate",
+      "tags": [],
+      "difficulty": null,
+      "status": "ac"
+    },
+    {
+      "path": "problems/atcoder/abc449/C.cpp",
+      "platform": "atcoder",
+      "contest": "abc449",
+      "problem": "C",
+      "task_id": "abc449_c",
+      "source_url": "https://atcoder.jp/contests/abc449/tasks/abc449_c",
+      "title": "C - Comfortable Distance",
+      "tags": [],
+      "difficulty": null,
+      "status": "ac"
+    },
+    {
+      "path": "problems/atcoder/abc449/D.cpp",
+      "platform": "atcoder",
+      "contest": "abc449",
+      "problem": "D",
+      "task_id": "abc449_d",
+      "source_url": "https://atcoder.jp/contests/abc449/tasks/abc449_d",
+      "title": "D - Make Target 2",
+      "tags": [],
+      "difficulty": null,
+      "status": "ac"
+    },
+    {
+      "path": "problems/atcoder/abc449/E.cpp",
+      "platform": "atcoder",
+      "contest": "abc449",
+      "problem": "E",
+      "task_id": "abc449_e",
+      "source_url": "https://atcoder.jp/contests/abc449/tasks/abc449_e",
+      "title": "E - A += v",
+      "tags": [],
+      "difficulty": null,
+      "status": "ac"
+    },
+    {
+      "path": "problems/practice/test.cpp",
+      "platform": "practice",
+      "contest": "misc",
+      "problem": "TEST",
+      "task_id": "",
+      "source_url": "",
+      "title": "",
+      "tags": [],
+      "difficulty": null,
+      "status": "ac"
+    }
+  ]
+}

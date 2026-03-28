@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ACM: New CPP from base.cpp",
+      "type": "shell",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "command": "bash",
+      "args": [
+        "-lc",
+        "chmod +x ./scripts/newcpp.sh && ./scripts/newcpp.sh \"${fileDirname}/${input:newCppName}\""
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "newCppName",
+      "type": "promptString",
+      "description": "新文件名（如 B.cpp）",
+      "default": "B.cpp"
+    }
+  ]
+}
