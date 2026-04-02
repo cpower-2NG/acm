@@ -1,7 +1,14 @@
-path	tags	difficulty	status	title
-problems/atcoder/abc449/B.cpp			ac	B - Deconstruct Chocolate
-problems/atcoder/abc449/C.cpp			ac	C - Comfortable Distance
-problems/atcoder/abc449/D.cpp			ac	D - Make Target 2
-problems/atcoder/abc449/E.cpp			ac	E - A += v
-problems/practice/test.cpp			ac	
-problems/atcoder/abc449/A.cpp	图论, 动态规划, 贪心		ac	A - π
+path	tags	status	title
+problems/atcoder/abc449/A.cpp	数学, 浮点精度	ac	A - π
+problems/atcoder/abc449/B.cpp	模拟	ac	B - Deconstruct Chocolate
+problems/atcoder/abc449/C.cpp	字符串, 滑动窗口	ac	C - Comfortable Distance
+problems/atcoder/abc449/D.cpp	数学, 模拟	ac	D - Make Target 2
+problems/atcoder/abc449/E.cpp	树状数组, 二分	ac	E - A += v
+problems/atcoder/abc451/A.cpp	数学, 模拟	ac	A - illegal
+problems/atcoder/abc451/B.cpp	差分	ac	B - Personnel Change
+problems/atcoder/abc451/C.cpp	优先队列	ac	C - Understory
+problems/atcoder/abc451/D.cpp	深度优先搜索, 构造	ac	D - Concat Power of 2
+problems/atcoder/abc451/E.cpp	图论, 最小生成树	ac	E - Tree Distance
+problems/practice/luogu_P1027.cpp	图论, 最短路	ac	
+problems/practice/luogu_P3385.cpp	图论, 负环, 贝尔曼福德	ce	
+problems/practice/test.cpp	模拟	ac	

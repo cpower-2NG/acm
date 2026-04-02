@@ -17,6 +17,18 @@
       "presentation": {
         "reveal": "silent"
       }
+    },
+    {
+      "label": "ACM: Update Index",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "index"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent"
+      }
     }
   ],
   "inputs": [

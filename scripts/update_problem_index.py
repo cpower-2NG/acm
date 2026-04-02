@@ -17,12 +17,11 @@ OUTPUT_JSON = DATA_DIR / "problems_index.json"
 OUTPUT_MD = ROOT / "PROBLEMS.md"
 OUTPUT_TAG_MD = ROOT / "PROBLEMS_BY_TAG.md"
 OUTPUT_UNTAGGED_MD = ROOT / "PROBLEMS_UNTAGGED.md"
-OUTPUT_RECORDS_DIR = ROOT / "notes" / "records"
 ANNOTATION_TSV = DATA_DIR / "problem_annotations.tsv"
 TAG_ALIASES_JSON = DATA_DIR / "tag_aliases.json"
 
 
-TSV_COLUMNS = ["path", "tags", "difficulty", "status", "title"]
+TSV_COLUMNS = ["path", "tags", "status", "title"]
 
 
 DEFAULT_TAG_ALIASES = {
@@ -35,9 +34,17 @@ DEFAULT_TAG_ALIASES = {
         {"id": "深度优先搜索", "zh": "深度优先搜索", "en": "dfs", "aliases": ["depth-first search"]},
         {"id": "广度优先搜索", "zh": "广度优先搜索", "en": "bfs", "aliases": ["breadth-first search"]},
         {"id": "贪心", "zh": "贪心", "en": "greedy", "aliases": []},
-        {"id": "实现", "zh": "实现", "en": "implementation", "aliases": []},
+        {"id": "模拟", "zh": "模拟", "en": "simulation", "aliases": ["实现", "implementation"]},
         {"id": "数学", "zh": "数学", "en": "math", "aliases": []},
         {"id": "字符串", "zh": "字符串", "en": "string", "aliases": []},
+        {"id": "滑动窗口", "zh": "滑动窗口", "en": "sliding-window", "aliases": ["sliding window"]},
+        {"id": "差分", "zh": "差分", "en": "difference-array", "aliases": ["difference array"]},
+        {"id": "优先队列", "zh": "优先队列", "en": "priority-queue", "aliases": ["priority queue", "heap"]},
+        {"id": "树状数组", "zh": "树状数组", "en": "fenwick", "aliases": ["fenwick", "bit"]},
+        {"id": "最小生成树", "zh": "最小生成树", "en": "mst", "aliases": ["minimum spanning tree", "prim", "kruskal"]},
+        {"id": "负环", "zh": "负环", "en": "negative-cycle", "aliases": ["negative cycle"]},
+        {"id": "贝尔曼福德", "zh": "贝尔曼福德", "en": "bellman-ford", "aliases": ["bellman ford", "bellman-ford", "spfa"]},
+        {"id": "构造", "zh": "构造", "en": "constructive", "aliases": ["construction"]},
         {"id": "二分", "zh": "二分", "en": "binary-search", "aliases": ["binary search"]},
     ],
 }
@@ -93,7 +100,6 @@ class ProblemRecord:
     source_url: str
     title: str
     tags: List[str]
-    difficulty: Optional[int]
     status: str
 
 
@@ -101,14 +107,24 @@ class ProblemRecord:
 class AnnotationRow:
     path: str
     tags: List[str]
-    difficulty: Optional[int]
     status: str
     title: str
     is_new: bool
 
 
 def normalize_tag_token(token: str) -> str:
-    return token.strip().lower()
+    t = token.strip().lower()
+    # Normalize common full-width punctuation and separators.
+    t = (
+        t.replace("（", "(")
+        .replace("）", ")")
+        .replace("，", ",")
+        .replace("：", ":")
+    )
+    # Make english aliases robust to style differences: bellman ford / bellman-ford / bellman_ford.
+    for ch in [" ", "-", "_", "/", "\\", "(", ")", ",", ":", "."]:
+        t = t.replace(ch, "")
+    return t
 
 
 def load_tag_aliases() -> Tuple[Dict[str, str], Dict[str, Dict[str, str]]]:
@@ -182,18 +198,9 @@ def render_tag(tag: str, id_to_meta: Dict[str, Dict[str, str]]) -> str:
 def parse_tags_text(text: str) -> List[str]:
     if not text:
         return []
-    tags = [x.strip() for x in text.split(",")]
+    normalized = text.replace("，", ",")
+    tags = [x.strip() for x in re.split(r"[,;；|/]", normalized)]
     return tags
-
-
-def parse_optional_int(text: str) -> Optional[int]:
-    t = text.strip()
-    if not t:
-        return None
-    try:
-        return int(t)
-    except ValueError:
-        return None
 
 
 def parse_problem_file(p: Path) -> Optional[Tuple[str, str, str, str]]:
@@ -204,8 +211,13 @@ def parse_problem_file(p: Path) -> Optional[Tuple[str, str, str, str]]:
 
     platform = parts[0].lower()
     stem = p.stem
-    if not re.fullmatch(r"[A-Za-z][A-Za-z0-9]*", stem):
-        return None
+    if platform == "practice":
+        # Practice filenames may include underscores, e.g. luogu_P1027.cpp.
+        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_]*", stem):
+            return None
+    else:
+        if not re.fullmatch(r"[A-Za-z][A-Za-z0-9]*", stem):
+            return None
 
     if len(parts) >= 3:
         contest = parts[1].lower()
@@ -233,23 +245,17 @@ def fetch_codeforces_map() -> Dict[Tuple[str, str], Dict]:
         key = (str(contest_id), str(index).upper())
         out[key] = {
             "title": item.get("name", ""),
-            "tags": normalize_tags(item.get("tags", [])),
-            "difficulty": item.get("rating"),
+            "tags": item.get("tags", []),
         }
     return out
 
 
-def fetch_atcoder_map() -> Tuple[Dict[str, Dict], Dict[str, Optional[int]]]:
+def fetch_atcoder_map() -> Dict[str, Dict]:
     problems = fetch_json_any(
         [
+            "https://raw.githubusercontent.com/kenkoooo/AtCoderProblems/master/resources/problems.json",
             "https://kenkoooo.com/atcoder/resources/problems.json",
             "https://atcoder-problems.s3.ap-northeast-1.amazonaws.com/resources/problems.json",
-        ]
-    )
-    models = fetch_json_any(
-        [
-            "https://kenkoooo.com/atcoder/resources/problem-models.json",
-            "https://atcoder-problems.s3.ap-northeast-1.amazonaws.com/resources/problem-models.json",
         ]
     )
 
@@ -262,14 +268,7 @@ def fetch_atcoder_map() -> Tuple[Dict[str, Dict], Dict[str, Optional[int]]]:
             "title": item.get("title", ""),
         }
 
-    dmap: Dict[str, Optional[int]] = {}
-    for pid, model in models.items():
-        if not isinstance(model, dict):
-            continue
-        diff = model.get("difficulty")
-        dmap[pid] = int(diff) if isinstance(diff, int) else None
-
-    return pmap, dmap
+    return pmap
 
 
 def load_annotations(alias_to_id: Dict[str, str]) -> Dict[str, AnnotationRow]:
@@ -286,7 +285,6 @@ def load_annotations(alias_to_id: Dict[str, str]) -> Dict[str, AnnotationRow]:
             row = AnnotationRow(
                 path=path,
                 tags=resolve_tags(parse_tags_text((raw.get("tags") or "").strip()), alias_to_id),
-                difficulty=parse_optional_int((raw.get("difficulty") or "").strip()),
                 status=((raw.get("status") or "ac").strip().lower() or "ac"),
                 title=(raw.get("title") or "").strip(),
                 is_new=False,
@@ -305,7 +303,6 @@ def write_annotations(rows: List[AnnotationRow]):
                 {
                     "path": row.path,
                     "tags": ", ".join(row.tags),
-                    "difficulty": "" if row.difficulty is None else str(row.difficulty),
                     "status": row.status,
                     "title": row.title,
                 }
@@ -326,7 +323,6 @@ def merge_annotations(
             row = AnnotationRow(
                 path=rec.path,
                 tags=rec.tags[:],
-                difficulty=rec.difficulty,
                 status=rec.status,
                 title=rec.title,
                 is_new=True,
@@ -335,14 +331,12 @@ def merge_annotations(
             row = AnnotationRow(
                 path=rec.path,
                 tags=prev.tags if prev.tags else rec.tags,
-                difficulty=prev.difficulty if prev.difficulty is not None else rec.difficulty,
                 status=prev.status if prev.status else rec.status,
                 title=prev.title if prev.title else rec.title,
                 is_new=False,
             )
 
         rec.tags = resolve_tags(row.tags, alias_to_id)
-        rec.difficulty = row.difficulty
         rec.status = row.status
         if row.title:
             rec.title = row.title
@@ -371,7 +365,6 @@ def build_records() -> Dict:
 
     cf_map: Dict[Tuple[str, str], Dict] = {}
     atcoder_map: Dict[str, Dict] = {}
-    atcoder_diff: Dict[str, Optional[int]] = {}
     warnings: List[str] = []
     atcoder_title_cache: Dict[str, str] = {}
     alias_to_id, id_to_meta = load_tag_aliases()
@@ -382,9 +375,9 @@ def build_records() -> Dict:
         warnings.append(f"codeforces metadata unavailable: {e}")
 
     try:
-        atcoder_map, atcoder_diff = fetch_atcoder_map()
+        atcoder_map = fetch_atcoder_map()
     except Exception as e:
-        warnings.append(f"atcoder metadata unavailable: {e}")
+        warnings.append(f"atcoder metadata API unavailable, using page-title fallback: {e}")
 
     records: List[ProblemRecord] = []
 
@@ -396,7 +389,6 @@ def build_records() -> Dict:
         platform, contest, problem, task_id = parsed
         title = ""
         tags: List[str] = []
-        difficulty: Optional[int] = None
         source_url = ""
 
         if platform == "codeforces":
@@ -409,7 +401,6 @@ def build_records() -> Dict:
                 if meta:
                     title = meta.get("title", "")
                     tags = resolve_tags(meta.get("tags", []), alias_to_id)
-                    difficulty = meta.get("difficulty")
 
         elif platform == "atcoder":
             if task_id:
@@ -417,7 +408,6 @@ def build_records() -> Dict:
                 meta = atcoder_map.get(task_id)
                 if meta:
                     title = meta.get("title", "")
-                    difficulty = atcoder_diff.get(task_id)
                 if not title:
                     cached = atcoder_title_cache.get(source_url)
                     if cached is not None:
@@ -437,7 +427,6 @@ def build_records() -> Dict:
                 source_url=source_url,
                 title=title,
                 tags=tags,
-                difficulty=difficulty,
                 status="ac",
             )
         )
@@ -477,12 +466,11 @@ def write_problems_md(payload: Dict):
 
     lines.append("## All Problems")
     lines.append("")
-    lines.append("| Code Path | Platform | Contest | Problem | Title | Tags | Difficulty | Status | Link |")
-    lines.append("| --- | --- | --- | --- | --- | --- | --- | --- | --- |")
+    lines.append("| Code Path | Platform | Contest | Problem | Title | Tags | Status | Link |")
+    lines.append("| --- | --- | --- | --- | --- | --- | --- | --- |")
     for item in records:
         title = item["title"].replace("|", "\\|") if item["title"] else "-"
         tags = ",".join([render_tag(t, id_to_meta) for t in item.get("tags", [])]) if item.get("tags") else "-"
-        diff = str(item["difficulty"]) if item["difficulty"] is not None else "-"
         link = item["source_url"] if item["source_url"] else "-"
         code_path = item["path"]
         code_path_cell = f"[{code_path}]({code_path})"
@@ -490,7 +478,7 @@ def write_problems_md(payload: Dict):
         problem_cell = f"[{item['problem']}]({link})" if link != "-" else item["problem"]
         status = item.get("status", "ac")
         lines.append(
-            f"| {code_path_cell} | {item['platform']} | {item['contest']} | {problem_cell} | {title_cell} | {tags} | {diff} | {status} | {link} |"
+            f"| {code_path_cell} | {item['platform']} | {item['contest']} | {problem_cell} | {title_cell} | {tags} | {status} | {link} |"
         )
 
     OUTPUT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -527,15 +515,14 @@ def write_by_tag_md(payload: Dict):
         lines.append("")
         for item in sorted(tag_map[tag], key=lambda x: (x["platform"], x["contest"], x["problem"])):
             title = item["title"] or "(no title)"
-            diff = item["difficulty"] if item["difficulty"] is not None else "-"
             tags_text = ",".join([render_tag(t, id_to_meta) for t in item.get("tags", [])])
             source_url = item.get("source_url") or ""
             pid = f"{item['platform']}/{item['contest']}/{item['problem']}"
-            pid_cell = f"[{pid}]({source_url})" if source_url else f"[{pid}]"
+            pid_cell = f"[{pid}]({source_url})" if source_url else pid
             code_path = item["path"]
             code_cell = f"[{code_path}]({code_path})"
             lines.append(
-                f"- {pid_cell} {title} | tags={tags_text} | diff={diff} | status={item.get('status', 'ac')} | code={code_cell} | path={code_path}"
+                f"- {pid_cell} {title} | tags={tags_text} | status={item.get('status', 'ac')} | code={code_cell} | path={code_path}"
             )
         lines.append("")
 
@@ -546,14 +533,13 @@ def write_by_tag_md(payload: Dict):
     else:
         for item in sorted(untagged, key=lambda x: (x["platform"], x["contest"], x["problem"])):
             title = item["title"] or "(no title)"
-            diff = item["difficulty"] if item["difficulty"] is not None else "-"
             source_url = item.get("source_url") or ""
             pid = f"{item['platform']}/{item['contest']}/{item['problem']}"
-            pid_cell = f"[{pid}]({source_url})" if source_url else f"[{pid}]"
+            pid_cell = f"[{pid}]({source_url})" if source_url else pid
             code_path = item["path"]
             code_cell = f"[{code_path}]({code_path})"
             lines.append(
-                f"- {pid_cell} {title} | diff={diff} | status={item.get('status', 'ac')} | code={code_cell} | path={code_path}"
+                f"- {pid_cell} {title} | status={item.get('status', 'ac')} | code={code_cell} | path={code_path}"
             )
 
     OUTPUT_TAG_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -583,61 +569,6 @@ def write_untagged_md(payload: Dict):
     OUTPUT_UNTAGGED_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def write_problem_records(payload: Dict):
-    records = payload["records"]
-    id_to_meta = payload.get("tag_meta", {})
-
-    for item in records:
-        rel_path = item["path"]
-        src_file = ROOT / rel_path
-        if not src_file.exists():
-            continue
-
-        try:
-            code = src_file.read_text(encoding="utf-8")
-        except Exception:
-            code = ""
-
-        rec_dir = OUTPUT_RECORDS_DIR / item["platform"] / item["contest"]
-        rec_dir.mkdir(parents=True, exist_ok=True)
-        rec_file = rec_dir / f"{item['problem']}.md"
-
-        tags_json = json.dumps(item.get("tags", []), ensure_ascii=False)
-        tags_display = ", ".join([render_tag(t, id_to_meta) for t in item.get("tags", [])])
-        difficulty = item["difficulty"] if item["difficulty"] is not None else "null"
-
-        lines: List[str] = []
-        lines.append("---")
-        lines.append(f"platform: {item['platform']}")
-        lines.append(f"contest: {item['contest']}")
-        lines.append(f"problem: {item['problem']}")
-        lines.append(f"title: {json.dumps(item.get('title', ''), ensure_ascii=False)}")
-        lines.append(f"url: {json.dumps(item.get('source_url', ''), ensure_ascii=False)}")
-        lines.append(f"tags: {tags_json}")
-        lines.append(f"tags_display: {json.dumps(tags_display, ensure_ascii=False)}")
-        lines.append(f"difficulty: {difficulty}")
-        lines.append(f"status: {item.get('status', 'ac')}")
-        lines.append(f"code_path: {item['path']}")
-        lines.append(f"updated_at: {payload['generated_at']}")
-        lines.append("---")
-        lines.append("")
-        lines.append("## Idea")
-        lines.append("")
-        lines.append("TODO")
-        lines.append("")
-        lines.append("## Pitfalls")
-        lines.append("")
-        lines.append("TODO")
-        lines.append("")
-        lines.append("## AC Code")
-        lines.append("")
-        lines.append("```cpp")
-        lines.append(code.rstrip("\n"))
-        lines.append("```")
-
-        rec_file.write_text("\n".join(lines) + "\n", encoding="utf-8")
-
-
 def main():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     payload = build_records()
@@ -646,7 +577,6 @@ def main():
     write_problems_md(payload)
     write_by_tag_md(payload)
     write_untagged_md(payload)
-    write_problem_records(payload)
 
     print(
         "Updated "

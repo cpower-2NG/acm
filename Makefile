@@ -1,25 +1,9 @@
-CXX ?= g++
-CXXFLAGS ?= -std=c++20 -O2 -Wall -Wextra -Wshadow -Wconversion
+PYTHON ?= conda run -n acm python
 
-SRC := $(shell find problems -type f -name "*.cpp" ! -path "*/.*")
-BIN := $(patsubst problems/%.cpp,build/bin/%,$(SRC))
-
-.PHONY: all list index clean clean-cph
-
-all: $(BIN)
-
-list:
-	@printf "%s\n" $(BIN)
+.PHONY: index clean-cph
 
 index:
-	conda run -n acm python scripts/update_problem_index.py
-
-build/bin/%: problems/%.cpp
-	@mkdir -p $(dir $@)
-	$(CXX) $(CXXFLAGS) "$<" -o "$@"
-
-clean:
-	rm -rf build
+	$(PYTHON) scripts/update_problem_index.py
 
 clean-cph:
 	find problems -type f \( -name '*.prob' -o -name '.*.prob' \) -delete

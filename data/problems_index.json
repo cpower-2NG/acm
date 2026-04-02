@@ -1,9 +1,8 @@
 {
-  "generated_at": "2026-03-27T03:36:04Z",
-  "count": 6,
+  "generated_at": "2026-04-02T07:09:52Z",
+  "count": 13,
   "warnings": [
-    "codeforces metadata unavailable: name 'normalize_tags' is not defined",
-    "atcoder metadata unavailable: HTTP Error 404: Not Found"
+    "atcoder metadata API unavailable, using page-title fallback: HTTP Error 404: Not Found"
   ],
   "tag_meta": {
     "图论": {
@@ -14,13 +13,93 @@
       "zh": "最短路",
       "en": "shortest-path"
     },
+    "负环": {
+      "zh": "负环",
+      "en": "negative-cycle"
+    },
+    "贝尔曼福德": {
+      "zh": "贝尔曼福德",
+      "en": "bellman-ford"
+    },
+    "最小生成树": {
+      "zh": "最小生成树",
+      "en": "mst"
+    },
+    "拓扑排序": {
+      "zh": "拓扑排序",
+      "en": "topological-sort"
+    },
+    "强连通分量": {
+      "zh": "强连通分量",
+      "en": "scc"
+    },
+    "二分图": {
+      "zh": "二分图",
+      "en": "bipartite-graph"
+    },
+    "网络流": {
+      "zh": "网络流",
+      "en": "flow"
+    },
     "数据结构": {
       "zh": "数据结构",
       "en": "data-structure"
     },
+    "并查集": {
+      "zh": "并查集",
+      "en": "dsu"
+    },
+    "线段树": {
+      "zh": "线段树",
+      "en": "segment-tree"
+    },
+    "树状数组": {
+      "zh": "树状数组",
+      "en": "fenwick"
+    },
+    "ST表": {
+      "zh": "ST表",
+      "en": "sparse-table"
+    },
+    "单调栈": {
+      "zh": "单调栈",
+      "en": "monotonic-stack"
+    },
+    "单调队列": {
+      "zh": "单调队列",
+      "en": "monotonic-queue"
+    },
+    "栈": {
+      "zh": "栈",
+      "en": "stack"
+    },
+    "队列": {
+      "zh": "队列",
+      "en": "queue"
+    },
     "动态规划": {
       "zh": "动态规划",
       "en": "dp"
+    },
+    "背包": {
+      "zh": "背包",
+      "en": "knapsack"
+    },
+    "区间DP": {
+      "zh": "区间DP",
+      "en": "interval-dp"
+    },
+    "树形DP": {
+      "zh": "树形DP",
+      "en": "tree-dp"
+    },
+    "状压DP": {
+      "zh": "状压DP",
+      "en": "state-compression-dp"
+    },
+    "数位DP": {
+      "zh": "数位DP",
+      "en": "digit-dp"
     },
     "深度优先搜索": {
       "zh": "深度优先搜索",
@@ -30,25 +109,125 @@
       "zh": "广度优先搜索",
       "en": "bfs"
     },
+    "双指针": {
+      "zh": "双指针",
+      "en": "two-pointers"
+    },
     "贪心": {
       "zh": "贪心",
       "en": "greedy"
     },
-    "实现": {
-      "zh": "实现",
-      "en": "implementation"
+    "模拟": {
+      "zh": "模拟",
+      "en": "simulation"
     },
     "数学": {
       "zh": "数学",
       "en": "math"
     },
+    "数论": {
+      "zh": "数论",
+      "en": "number-theory"
+    },
+    "组合数学": {
+      "zh": "组合数学",
+      "en": "combinatorics"
+    },
+    "概率与期望": {
+      "zh": "概率与期望",
+      "en": "probability-expectation"
+    },
+    "矩阵": {
+      "zh": "矩阵",
+      "en": "matrix"
+    },
+    "快速幂": {
+      "zh": "快速幂",
+      "en": "fast-power"
+    },
+    "浮点精度": {
+      "zh": "浮点精度",
+      "en": "floating-point-precision"
+    },
     "字符串": {
       "zh": "字符串",
       "en": "string"
     },
+    "KMP": {
+      "zh": "KMP",
+      "en": "kmp"
+    },
+    "字符串哈希": {
+      "zh": "字符串哈希",
+      "en": "string-hash"
+    },
+    "字典树": {
+      "zh": "字典树",
+      "en": "trie"
+    },
+    "AC自动机": {
+      "zh": "AC自动机",
+      "en": "aho-corasick"
+    },
+    "后缀数组": {
+      "zh": "后缀数组",
+      "en": "suffix-array"
+    },
+    "后缀自动机": {
+      "zh": "后缀自动机",
+      "en": "suffix-automaton"
+    },
+    "回文": {
+      "zh": "回文",
+      "en": "palindrome"
+    },
+    "滑动窗口": {
+      "zh": "滑动窗口",
+      "en": "sliding-window"
+    },
+    "差分": {
+      "zh": "差分",
+      "en": "difference-array"
+    },
+    "前缀和": {
+      "zh": "前缀和",
+      "en": "prefix-sum"
+    },
+    "优先队列": {
+      "zh": "优先队列",
+      "en": "priority-queue"
+    },
+    "构造": {
+      "zh": "构造",
+      "en": "constructive"
+    },
     "二分": {
       "zh": "二分",
       "en": "binary-search"
+    },
+    "离散化": {
+      "zh": "离散化",
+      "en": "discretization"
+    },
+    "排序": {
+      "zh": "排序",
+      "en": "sorting"
+    },
+    "树": {
+      "zh": "树",
+      "en": "tree"
+    },
+    "LCA": {
+      "zh": "LCA",
+      "en": "lowest-common-ancestor"
+    },
+    "计算几何": {
+      "zh": "计算几何",
+      "en": "computational-geometry"
+    },
+    "模板": {
+      "zh": "模板",
+      "en": "template"
     }
   },
   "records": [
@@ -61,11 +240,9 @@
       "source_url": "https://atcoder.jp/contests/abc449/tasks/abc449_a",
       "title": "A - π",
       "tags": [
-        "图论",
-        "动态规划",
-        "贪心"
+        "数学",
+        "浮点精度"
       ],
-      "difficulty": null,
       "status": "ac"
     },
     {
@@ -76,8 +253,9 @@
       "task_id": "abc449_b",
       "source_url": "https://atcoder.jp/contests/abc449/tasks/abc449_b",
       "title": "B - Deconstruct Chocolate",
-      "tags": [],
-      "difficulty": null,
+      "tags": [
+        "模拟"
+      ],
       "status": "ac"
     },
     {
@@ -88,8 +266,10 @@
       "task_id": "abc449_c",
       "source_url": "https://atcoder.jp/contests/abc449/tasks/abc449_c",
       "title": "C - Comfortable Distance",
-      "tags": [],
-      "difficulty": null,
+      "tags": [
+        "字符串",
+        "滑动窗口"
+      ],
       "status": "ac"
     },
     {
@@ -100,8 +280,10 @@
       "task_id": "abc449_d",
       "source_url": "https://atcoder.jp/contests/abc449/tasks/abc449_d",
       "title": "D - Make Target 2",
-      "tags": [],
-      "difficulty": null,
+      "tags": [
+        "数学",
+        "模拟"
+      ],
       "status": "ac"
     },
     {
@@ -112,9 +294,108 @@
       "task_id": "abc449_e",
       "source_url": "https://atcoder.jp/contests/abc449/tasks/abc449_e",
       "title": "E - A += v",
-      "tags": [],
-      "difficulty": null,
+      "tags": [
+        "树状数组",
+        "二分"
+      ],
       "status": "ac"
+    },
+    {
+      "path": "problems/atcoder/abc451/A.cpp",
+      "platform": "atcoder",
+      "contest": "abc451",
+      "problem": "A",
+      "task_id": "abc451_a",
+      "source_url": "https://atcoder.jp/contests/abc451/tasks/abc451_a",
+      "title": "A - illegal",
+      "tags": [
+        "数学",
+        "模拟"
+      ],
+      "status": "ac"
+    },
+    {
+      "path": "problems/atcoder/abc451/B.cpp",
+      "platform": "atcoder",
+      "contest": "abc451",
+      "problem": "B",
+      "task_id": "abc451_b",
+      "source_url": "https://atcoder.jp/contests/abc451/tasks/abc451_b",
+      "title": "B - Personnel Change",
+      "tags": [
+        "差分"
+      ],
+      "status": "ac"
+    },
+    {
+      "path": "problems/atcoder/abc451/C.cpp",
+      "platform": "atcoder",
+      "contest": "abc451",
+      "problem": "C",
+      "task_id": "abc451_c",
+      "source_url": "https://atcoder.jp/contests/abc451/tasks/abc451_c",
+      "title": "C - Understory",
+      "tags": [
+        "优先队列"
+      ],
+      "status": "ac"
+    },
+    {
+      "path": "problems/atcoder/abc451/D.cpp",
+      "platform": "atcoder",
+      "contest": "abc451",
+      "problem": "D",
+      "task_id": "abc451_d",
+      "source_url": "https://atcoder.jp/contests/abc451/tasks/abc451_d",
+      "title": "D - Concat Power of 2",
+      "tags": [
+        "深度优先搜索",
+        "构造"
+      ],
+      "status": "ac"
+    },
+    {
+      "path": "problems/atcoder/abc451/E.cpp",
+      "platform": "atcoder",
+      "contest": "abc451",
+      "problem": "E",
+      "task_id": "abc451_e",
+      "source_url": "https://atcoder.jp/contests/abc451/tasks/abc451_e",
+      "title": "E - Tree Distance",
+      "tags": [
+        "图论",
+        "最小生成树"
+      ],
+      "status": "ac"
+    },
+    {
+      "path": "problems/practice/luogu_P1027.cpp",
+      "platform": "practice",
+      "contest": "misc",
+      "problem": "LUOGU_P1027",
+      "task_id": "",
+      "source_url": "",
+      "title": "",
+      "tags": [
+        "图论",
+        "最短路"
+      ],
+      "status": "ac"
+    },
+    {
+      "path": "problems/practice/luogu_P3385.cpp",
+      "platform": "practice",
+      "contest": "misc",
+      "problem": "LUOGU_P3385",
+      "task_id": "",
+      "source_url": "",
+      "title": "",
+      "tags": [
+        "图论",
+        "负环",
+        "贝尔曼福德"
+      ],
+      "status": "ce"
     },
     {
       "path": "problems/practice/test.cpp",
@@ -124,8 +405,9 @@
       "task_id": "",
       "source_url": "",
       "title": "",
-      "tags": [],
-      "difficulty": null,
+      "tags": [
+        "模拟"
+      ],
       "status": "ac"
     }
   ]

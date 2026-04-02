@@ -3,8 +3,9 @@
 # - use lowercase
 # - prefer short and stable terms
 
-implementation
+simulation
 math
+floating-point-precision
 bruteforce
 greedy
 constructive

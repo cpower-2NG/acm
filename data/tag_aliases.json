@@ -6,7 +6,8 @@
       "zh": "图论",
       "en": "graph",
       "aliases": [
-        "graphs"
+        "graphs",
+        "graph theory"
       ]
     },
     {
@@ -15,8 +16,91 @@
       "en": "shortest-path",
       "aliases": [
         "shortest path",
+        "shortest-path",
+        "sssp",
+        "apsp",
+        "最短路径",
         "dijkstra",
         "floyd"
+      ]
+    },
+    {
+      "id": "负环",
+      "zh": "负环",
+      "en": "negative-cycle",
+      "aliases": [
+        "negative cycle",
+        "negative-cycle",
+        "负权环"
+      ]
+    },
+    {
+      "id": "贝尔曼福德",
+      "zh": "贝尔曼福德",
+      "en": "bellman-ford",
+      "aliases": [
+        "bellman ford",
+        "bellman-ford",
+        "bf",
+        "spfa",
+        "差分约束"
+      ]
+    },
+    {
+      "id": "最小生成树",
+      "zh": "最小生成树",
+      "en": "mst",
+      "aliases": [
+        "minimum spanning tree",
+        "mst",
+        "prim",
+        "kruskal"
+      ]
+    },
+    {
+      "id": "拓扑排序",
+      "zh": "拓扑排序",
+      "en": "topological-sort",
+      "aliases": [
+        "topological sort",
+        "toposort",
+        "拓扑"
+      ]
+    },
+    {
+      "id": "强连通分量",
+      "zh": "强连通分量",
+      "en": "scc",
+      "aliases": [
+        "scc",
+        "tarjan",
+        "kosaraju"
+      ]
+    },
+    {
+      "id": "二分图",
+      "zh": "二分图",
+      "en": "bipartite-graph",
+      "aliases": [
+        "bipartite",
+        "bipartite graph",
+        "匈牙利",
+        "hungarian"
+      ]
+    },
+    {
+      "id": "网络流",
+      "zh": "网络流",
+      "en": "flow",
+      "aliases": [
+        "maxflow",
+        "max flow",
+        "dinic",
+        "isap",
+        "最小割",
+        "费用流",
+        "min cost max flow",
+        "mcmf"
       ]
     },
     {
@@ -29,11 +113,129 @@
       ]
     },
     {
+      "id": "并查集",
+      "zh": "并查集",
+      "en": "dsu",
+      "aliases": [
+        "union find",
+        "union-find",
+        "disjoint set",
+        "dsu"
+      ]
+    },
+    {
+      "id": "线段树",
+      "zh": "线段树",
+      "en": "segment-tree",
+      "aliases": [
+        "segment tree",
+        "segtree",
+        "seg"
+      ]
+    },
+    {
+      "id": "树状数组",
+      "zh": "树状数组",
+      "en": "fenwick",
+      "aliases": [
+        "fenwick",
+        "bit",
+        "binary indexed tree"
+      ]
+    },
+    {
+      "id": "ST表",
+      "zh": "ST表",
+      "en": "sparse-table",
+      "aliases": [
+        "sparse table",
+        "st",
+        "rmq"
+      ]
+    },
+    {
+      "id": "单调栈",
+      "zh": "单调栈",
+      "en": "monotonic-stack",
+      "aliases": [
+        "monotonic stack",
+        "mono stack"
+      ]
+    },
+    {
+      "id": "单调队列",
+      "zh": "单调队列",
+      "en": "monotonic-queue",
+      "aliases": [
+        "monotonic queue",
+        "mono queue"
+      ]
+    },
+    {
+      "id": "栈",
+      "zh": "栈",
+      "en": "stack",
+      "aliases": []
+    },
+    {
+      "id": "队列",
+      "zh": "队列",
+      "en": "queue",
+      "aliases": [
+        "deque"
+      ]
+    },
+    {
       "id": "动态规划",
       "zh": "动态规划",
       "en": "dp",
       "aliases": [
-        "dynamic programming"
+        "dynamic programming",
+        "记忆化"
+      ]
+    },
+    {
+      "id": "背包",
+      "zh": "背包",
+      "en": "knapsack",
+      "aliases": [
+        "01背包",
+        "完全背包",
+        "多重背包"
+      ]
+    },
+    {
+      "id": "区间DP",
+      "zh": "区间DP",
+      "en": "interval-dp",
+      "aliases": [
+        "interval dp"
+      ]
+    },
+    {
+      "id": "树形DP",
+      "zh": "树形DP",
+      "en": "tree-dp",
+      "aliases": [
+        "tree dp"
+      ]
+    },
+    {
+      "id": "状压DP",
+      "zh": "状压DP",
+      "en": "state-compression-dp",
+      "aliases": [
+        "state compression dp",
+        "bitmask dp",
+        "状压"
+      ]
+    },
+    {
+      "id": "数位DP",
+      "zh": "数位DP",
+      "en": "digit-dp",
+      "aliases": [
+        "digit dp"
       ]
     },
     {
@@ -41,7 +243,8 @@
       "zh": "深度优先搜索",
       "en": "dfs",
       "aliases": [
-        "depth-first search"
+        "depth-first search",
+        "深搜"
       ]
     },
     {
@@ -49,7 +252,18 @@
       "zh": "广度优先搜索",
       "en": "bfs",
       "aliases": [
-        "breadth-first search"
+        "breadth-first search",
+        "广搜"
+      ]
+    },
+    {
+      "id": "双指针",
+      "zh": "双指针",
+      "en": "two-pointers",
+      "aliases": [
+        "two pointers",
+        "尺取法",
+        "sliding pointers"
       ]
     },
     {
@@ -59,10 +273,13 @@
       "aliases": []
     },
     {
-      "id": "实现",
-      "zh": "实现",
-      "en": "implementation",
-      "aliases": []
+      "id": "模拟",
+      "zh": "模拟",
+      "en": "simulation",
+      "aliases": [
+        "实现",
+        "implementation"
+      ]
     },
     {
       "id": "数学",
@@ -71,17 +288,246 @@
       "aliases": []
     },
     {
+      "id": "数论",
+      "zh": "数论",
+      "en": "number-theory",
+      "aliases": [
+        "number theory",
+        "nt",
+        "gcd",
+        "lcm",
+        "欧拉函数",
+        "筛法",
+        "同余",
+        "crt"
+      ]
+    },
+    {
+      "id": "组合数学",
+      "zh": "组合数学",
+      "en": "combinatorics",
+      "aliases": [
+        "comb",
+        "组合",
+        "容斥",
+        "鸽巢原理",
+        "卡特兰"
+      ]
+    },
+    {
+      "id": "概率与期望",
+      "zh": "概率与期望",
+      "en": "probability-expectation",
+      "aliases": [
+        "probability",
+        "expectation",
+        "概率",
+        "期望"
+      ]
+    },
+    {
+      "id": "矩阵",
+      "zh": "矩阵",
+      "en": "matrix",
+      "aliases": [
+        "线性代数"
+      ]
+    },
+    {
+      "id": "快速幂",
+      "zh": "快速幂",
+      "en": "fast-power",
+      "aliases": [
+        "binary exponentiation",
+        "qpow",
+        "powmod"
+      ]
+    },
+    {
+      "id": "浮点精度",
+      "zh": "浮点精度",
+      "en": "floating-point-precision",
+      "aliases": [
+        "floating point",
+        "float precision",
+        "precision",
+        "浮点"
+      ]
+    },
+    {
       "id": "字符串",
       "zh": "字符串",
       "en": "string",
-      "aliases": []
+      "aliases": [
+        "strings"
+      ]
+    },
+    {
+      "id": "KMP",
+      "zh": "KMP",
+      "en": "kmp",
+      "aliases": [
+        "prefix function",
+        "前缀函数"
+      ]
+    },
+    {
+      "id": "字符串哈希",
+      "zh": "字符串哈希",
+      "en": "string-hash",
+      "aliases": [
+        "hash",
+        "rolling hash"
+      ]
+    },
+    {
+      "id": "字典树",
+      "zh": "字典树",
+      "en": "trie",
+      "aliases": [
+        "01 trie",
+        "prefix tree"
+      ]
+    },
+    {
+      "id": "AC自动机",
+      "zh": "AC自动机",
+      "en": "aho-corasick",
+      "aliases": [
+        "ac automaton",
+        "aho corasick"
+      ]
+    },
+    {
+      "id": "后缀数组",
+      "zh": "后缀数组",
+      "en": "suffix-array",
+      "aliases": [
+        "sa"
+      ]
+    },
+    {
+      "id": "后缀自动机",
+      "zh": "后缀自动机",
+      "en": "suffix-automaton",
+      "aliases": [
+        "sam"
+      ]
+    },
+    {
+      "id": "回文",
+      "zh": "回文",
+      "en": "palindrome",
+      "aliases": [
+        "manacher",
+        "pam",
+        "palindromic tree"
+      ]
+    },
+    {
+      "id": "滑动窗口",
+      "zh": "滑动窗口",
+      "en": "sliding-window",
+      "aliases": [
+        "sliding window",
+        "窗口"
+      ]
+    },
+    {
+      "id": "差分",
+      "zh": "差分",
+      "en": "difference-array",
+      "aliases": [
+        "difference array",
+        "adjacent difference"
+      ]
+    },
+    {
+      "id": "前缀和",
+      "zh": "前缀和",
+      "en": "prefix-sum",
+      "aliases": [
+        "prefix sum",
+        "presum"
+      ]
+    },
+    {
+      "id": "优先队列",
+      "zh": "优先队列",
+      "en": "priority-queue",
+      "aliases": [
+        "priority queue",
+        "heap"
+      ]
+    },
+    {
+      "id": "构造",
+      "zh": "构造",
+      "en": "constructive",
+      "aliases": [
+        "construction"
+      ]
     },
     {
       "id": "二分",
       "zh": "二分",
       "en": "binary-search",
       "aliases": [
-        "binary search"
+        "binary search",
+        "二分答案",
+        "parametric search"
+      ]
+    },
+    {
+      "id": "离散化",
+      "zh": "离散化",
+      "en": "discretization",
+      "aliases": [
+        "coordinate compression"
+      ]
+    },
+    {
+      "id": "排序",
+      "zh": "排序",
+      "en": "sorting",
+      "aliases": [
+        "sort"
+      ]
+    },
+    {
+      "id": "树",
+      "zh": "树",
+      "en": "tree",
+      "aliases": [
+        "树上",
+        "tree algo"
+      ]
+    },
+    {
+      "id": "LCA",
+      "zh": "LCA",
+      "en": "lowest-common-ancestor",
+      "aliases": [
+        "lowest common ancestor",
+        "倍增"
+      ]
+    },
+    {
+      "id": "计算几何",
+      "zh": "计算几何",
+      "en": "computational-geometry",
+      "aliases": [
+        "geometry",
+        "convex hull",
+        "扫描线"
+      ]
+    },
+    {
+      "id": "模板",
+      "zh": "模板",
+      "en": "template",
+      "aliases": [
+        "模板题"
       ]
     }
   ]
