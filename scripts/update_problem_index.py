@@ -357,11 +357,20 @@ def merge_annotations(
 
 
 def build_records() -> Dict:
-    files = sorted(
-        p
-        for p in PROBLEMS_DIR.rglob("*.cpp")
-        if "/." not in str(p.relative_to(PROBLEMS_DIR))
-    )
+    # Collect common C/C++ source file extensions under problems/
+    exts = ["*.cpp", "*.cc", "*.cxx", "*.c"]
+    files_set = set()
+    for pat in exts:
+        for p in PROBLEMS_DIR.rglob(pat):
+            try:
+                rel = p.relative_to(PROBLEMS_DIR)
+            except Exception:
+                continue
+            if "/." in str(rel):
+                continue
+            files_set.add(p)
+
+    files = sorted(files_set)
 
     cf_map: Dict[Tuple[str, str], Dict] = {}
     atcoder_map: Dict[str, Dict] = {}

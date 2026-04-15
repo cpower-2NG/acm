@@ -1,8 +1,8 @@
 # Problems Index
 
-Generated at (UTC): 2026-04-02T07:09:52Z
+Generated at (UTC): 2026-04-15T13:16:06Z
 
-Total: 13
+Total: 18
 
 ## Warnings
 
@@ -22,6 +22,11 @@ Total: 13
 | [problems/atcoder/abc451/C.cpp](problems/atcoder/abc451/C.cpp) | atcoder | abc451 | [C](https://atcoder.jp/contests/abc451/tasks/abc451_c) | [C - Understory](https://atcoder.jp/contests/abc451/tasks/abc451_c) | 优先队列(priority-queue) | ac | https://atcoder.jp/contests/abc451/tasks/abc451_c |
 | [problems/atcoder/abc451/D.cpp](problems/atcoder/abc451/D.cpp) | atcoder | abc451 | [D](https://atcoder.jp/contests/abc451/tasks/abc451_d) | [D - Concat Power of 2](https://atcoder.jp/contests/abc451/tasks/abc451_d) | 深度优先搜索(dfs),构造(constructive) | ac | https://atcoder.jp/contests/abc451/tasks/abc451_d |
 | [problems/atcoder/abc451/E.cpp](problems/atcoder/abc451/E.cpp) | atcoder | abc451 | [E](https://atcoder.jp/contests/abc451/tasks/abc451_e) | [E - Tree Distance](https://atcoder.jp/contests/abc451/tasks/abc451_e) | 图论(graph),最小生成树(mst) | ac | https://atcoder.jp/contests/abc451/tasks/abc451_e |
+| [problems/atcoder/abc452/A.cpp](problems/atcoder/abc452/A.cpp) | atcoder | abc452 | [A](https://atcoder.jp/contests/abc452/tasks/abc452_a) | [A - Gothec](https://atcoder.jp/contests/abc452/tasks/abc452_a) | 模拟(simulation) | ac | https://atcoder.jp/contests/abc452/tasks/abc452_a |
+| [problems/atcoder/abc452/B.cpp](problems/atcoder/abc452/B.cpp) | atcoder | abc452 | [B](https://atcoder.jp/contests/abc452/tasks/abc452_b) | [B - Draw Frame](https://atcoder.jp/contests/abc452/tasks/abc452_b) | 模拟(simulation) | ac | https://atcoder.jp/contests/abc452/tasks/abc452_b |
+| [problems/atcoder/abc452/C.cpp](problems/atcoder/abc452/C.cpp) | atcoder | abc452 | [C](https://atcoder.jp/contests/abc452/tasks/abc452_c) | [C - Fishbones](https://atcoder.jp/contests/abc452/tasks/abc452_c) | 字符串(string) | ac | https://atcoder.jp/contests/abc452/tasks/abc452_c |
+| [problems/atcoder/abc452/D.cpp](problems/atcoder/abc452/D.cpp) | atcoder | abc452 | [D](https://atcoder.jp/contests/abc452/tasks/abc452_d) | [D - No-Subsequence Substring](https://atcoder.jp/contests/abc452/tasks/abc452_d) | 字符串(string) | ac | https://atcoder.jp/contests/abc452/tasks/abc452_d |
+| [problems/atcoder/abc452/E.cpp](problems/atcoder/abc452/E.cpp) | atcoder | abc452 | [E](https://atcoder.jp/contests/abc452/tasks/abc452_e) | [E - You WILL Like Sigma Problem](https://atcoder.jp/contests/abc452/tasks/abc452_e) | 数学(math) | ac | https://atcoder.jp/contests/abc452/tasks/abc452_e |
 | [problems/practice/luogu_P1027.cpp](problems/practice/luogu_P1027.cpp) | practice | misc | LUOGU_P1027 | - | 图论(graph),最短路(shortest-path) | ac | - |
 | [problems/practice/luogu_P3385.cpp](problems/practice/luogu_P3385.cpp) | practice | misc | LUOGU_P3385 | - | 图论(graph),负环(negative-cycle),贝尔曼福德(bellman-ford) | ce | - |
 | [problems/practice/test.cpp](problems/practice/test.cpp) | practice | misc | TEST | - | 模拟(simulation) | ac | - |

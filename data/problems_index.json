@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-02T07:09:52Z",
-  "count": 13,
+  "generated_at": "2026-04-15T13:16:06Z",
+  "count": 18,
   "warnings": [
     "atcoder metadata API unavailable, using page-title fallback: HTTP Error 404: Not Found"
   ],
@@ -365,6 +365,71 @@
       "tags": [
         "图论",
         "最小生成树"
+      ],
+      "status": "ac"
+    },
+    {
+      "path": "problems/atcoder/abc452/A.cpp",
+      "platform": "atcoder",
+      "contest": "abc452",
+      "problem": "A",
+      "task_id": "abc452_a",
+      "source_url": "https://atcoder.jp/contests/abc452/tasks/abc452_a",
+      "title": "A - Gothec",
+      "tags": [
+        "模拟"
+      ],
+      "status": "ac"
+    },
+    {
+      "path": "problems/atcoder/abc452/B.cpp",
+      "platform": "atcoder",
+      "contest": "abc452",
+      "problem": "B",
+      "task_id": "abc452_b",
+      "source_url": "https://atcoder.jp/contests/abc452/tasks/abc452_b",
+      "title": "B - Draw Frame",
+      "tags": [
+        "模拟"
+      ],
+      "status": "ac"
+    },
+    {
+      "path": "problems/atcoder/abc452/C.cpp",
+      "platform": "atcoder",
+      "contest": "abc452",
+      "problem": "C",
+      "task_id": "abc452_c",
+      "source_url": "https://atcoder.jp/contests/abc452/tasks/abc452_c",
+      "title": "C - Fishbones",
+      "tags": [
+        "字符串"
+      ],
+      "status": "ac"
+    },
+    {
+      "path": "problems/atcoder/abc452/D.cpp",
+      "platform": "atcoder",
+      "contest": "abc452",
+      "problem": "D",
+      "task_id": "abc452_d",
+      "source_url": "https://atcoder.jp/contests/abc452/tasks/abc452_d",
+      "title": "D - No-Subsequence Substring",
+      "tags": [
+        "字符串"
+      ],
+      "status": "ac"
+    },
+    {
+      "path": "problems/atcoder/abc452/E.cpp",
+      "platform": "atcoder",
+      "contest": "abc452",
+      "problem": "E",
+      "task_id": "abc452_e",
+      "source_url": "https://atcoder.jp/contests/abc452/tasks/abc452_e",
+      "title": "E - You WILL Like Sigma Problem",
+      "tags": [
+        "数学"
       ],
       "status": "ac"
     },

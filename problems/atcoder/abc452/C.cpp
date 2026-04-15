@@ -7,68 +7,48 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int t;
-    cin>>t;
-    while(t--){
-        int n, m;
-        cin>>n>>m;
+    int n;
+    cin>>n;
 
-        vector<vector<pair<int, int> > > adj(n+1);
-        for (int i = 0; i < m; ++i){
-            int u, v, w;
-            cin>>u>>v>>w;
-            
-            if(w >= 0){
-                adj[u].push_back({v, w});
-                adj[v].push_back({u, w});
-            }
-            else{
-                adj[u].push_back({v, w});
-            }
+    vector<int> a(n+1), b(n+1);
+    for (int i = 1; i <= n; ++i){
+        cin>>a[i]>>b[i];
+    }
+
+    int m;
+    cin>>m;
+    vector<string> s(m);
+    for (int i = 0; i < m; ++i){
+        cin>>s[i];
+    }
+
+    bool flag[20][20][27] = {};
+    for (string &t : s){
+        int l = t.length();
+        for (int i = 1; i <= l; ++i){
+            flag[l][i][t[i-1] - 'a'] = true;
+        }
+    }
+
+    for(int i = 0; i < m; ++i){
+        if (s[i].length() != n){
+            cout<<"No"<<endl;
+            continue;
         }
 
-        // SPFA算法检测负环
-        vector<long long> dis(n + 1, INT_MAX / 2);
-        vector<int> cnt(n + 1, 0);      // cnt[v]：到 v 的最短路使用的边数（沿着松弛链）
-        vector<bool> inq(n + 1, 0);
-        queue<int> q;
-
-        dis[1] = 0;
-        inq[1] = true;
-        q.push(1);
-
-        bool flag = false;
-
-        while (!q.empty() && !flag) {
-            int u = q.front();
-            q.pop();
-            inq[u] = false;
-
-            for (auto [v, w] : adj[u]) {
-                if (dis[v] > dis[u] + w) {
-                    dis[v] = dis[u] + w;
-                    cnt[v] = cnt[u] + 1;
-
-                    // 关键判定：一条“更短路”如果用了 >= n 条边，则必然经过环；
-                    // 且还能继续变短 => 存在负环
-                    if (cnt[v] > n) {
-                        flag = true;
-                        break;
-                    }
-
-                    if (!inq[v]) {
-                        q.push(v);
-                        inq[v] = 1;
-                    }
-                }
+        bool ok = true;
+        for (int j = 1; j <= n; ++j){
+            int target = s[i][j-1] - 'a';
+            if (!flag[a[j]][b[j]][target]){
+                ok = false;
+                break;
             }
         }
-
-        if (flag){
-            cout<<"YES"<<endl;
+        if (ok){
+            cout<<"Yes"<<endl;
         }
         else{
-            cout<<"NO"<<endl;
+            cout<<"No"<<endl;
         }
     }
     
